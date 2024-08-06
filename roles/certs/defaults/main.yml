@@ -1,0 +1,7 @@
+---
+# roles/ssh_cert/defaults/main.yml
+ssh_key_type: "rsa"
+ssh_key_bits: 4096
+ssh_user: "root"
+ssh_user_home: "/root"
+

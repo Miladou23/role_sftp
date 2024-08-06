@@ -1,0 +1,21 @@
+---
+# tasks file for sftp
+- name: configuration service avec le port {{ port_sftp }}
+  template:
+    src: sshd_sftp_config.j2
+    dest: /etc/ssh/sshd_sftp_config
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: creation service
+  template:
+    src: sshd_sftp.service.j2
+    dest: /etc/systemd/system/sshd_sftp.service
+  notify: Reload systemd
+
+- name: Ensure SSHD is enabled and started
+  ansible.builtin.service:
+    name: sshd_sftp.service
+    enabled: true
+  notify: Restart sshd_sftp 

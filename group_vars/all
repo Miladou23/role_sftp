@@ -1,0 +1,4 @@
+port_sftp: 2223
+ssh_key_path: "/etc/ssh/ssh_host_rsa_key_sftp"
+group: sysadmin
+file_config: sshd_sftp_config

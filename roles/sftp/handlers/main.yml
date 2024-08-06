@@ -1,0 +1,10 @@
+---
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Restart sshd_sftp
+  ansible.builtin.service:
+    name: sshd_sftp
+    state: restarted
+
